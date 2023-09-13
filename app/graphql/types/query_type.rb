@@ -33,5 +33,21 @@ module Types
     def car(id:)
       Car.find(BSON::ObjectId.from_string(id))
     end
+
+    field :cars_by_color, [Types::ModelTypes::CarType], null: false do
+      argument :color, String, required: true
+    end
+
+    def cars_by_color(color:)
+      Car.where(color:)
+    end
+
+    field :cars_by_kms, [Types::ModelTypes::CarType], null: false do
+      argument :kms, Integer, required: true
+    end
+
+    def cars_by_kms(kms:)
+      Car.where(kms:)
+    end
   end
 end
