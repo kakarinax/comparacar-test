@@ -20,13 +20,13 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :cars, [Types::CarType], null: false
+    field :cars, [Types::ModelTypes::CarType], null: false
 
     def cars
       Car.all
     end
 
-    field :car, Types::CarType, null: false do
+    field :car, Types::ModelTypes::CarType, null: false do
       argument :id, ID, required: true
     end
 

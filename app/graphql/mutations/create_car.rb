@@ -3,9 +3,9 @@ module Mutations
     graphql_name 'createCar'
     argument :color, String, required: false
     argument :kms, Integer, required: false
-    argument :version, Types::VersionInputType, required: true
+    argument :version, Types::InputTypes::VersionInputType, required: true
 
-    field :car, Types::CarType, null: false
+    field :car, Types::ModelTypes::CarType, null: false
     field :errors, [String], null: false
 
     def resolve(color:, kms:, version:)
