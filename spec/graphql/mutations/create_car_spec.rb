@@ -102,7 +102,7 @@ RSpec.describe Mutations::CreateCar, type: :request do
       end
 
       it 'throws an error' do
-        data = JSON.parse(response.body)
+        data = JSON.parse(response.body)['errors']
         expect(data).not_to be_empty
       end
     end
